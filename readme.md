@@ -1,6 +1,6 @@
 # Storm Surge Barrier Closure Data Project
 
-This README file explains how to set up a development environment for local development and how to generate a database.
+This README file explains how to set up a development environment for local development, how to generate a database, and how to use the FastAPI application.
 
 ## Setting Up Development Environment
 
@@ -12,12 +12,14 @@ This README file explains how to set up a development environment for local deve
     ```bash
     python3 -m venv venv
     ```
+
 3. Activate the virtual environment:
 
     - **Windows**:
         ```bash
         .\\venv\\Scripts\\Activate
         ```
+
     - **macOS and Linux**:
         ```bash
         source venv/bin/activate
@@ -27,13 +29,32 @@ This README file explains how to set up a development environment for local deve
 
 1. Create a `requirements.txt` file and list all the necessary packages, such as:
     ```
+    fastapi
+    uvicorn
     sqlalchemy
     python-dotenv
     ```
+
 2. Install the packages from `requirements.txt`:
     ```bash
     pip install -r requirements.txt
     ```
+
+## Running the FastAPI application
+
+1. FastAPI is a modern web framework that's built on top of Starlette and Pydantic. It's designed to create web APIs quickly and efficiently.
+
+2. Uvicorn is an ASGI server that serves as the interface between FastAPI and the outside world. It handles incoming requests and sends them to FastAPI for processing.
+
+3. To run the FastAPI application, use the following command:
+
+    ```bash
+    uvicorn your_fastapi_app:app --reload
+    ```
+
+    Replace `your_fastapi_app` with the name of your FastAPI application file, without the `.py` extension.
+
+4. The application will now be accessible at `http://127.0.0.1:8000`. 
 
 ## Generating a Database
 
@@ -60,10 +81,12 @@ This README file explains how to set up a development environment for local deve
         ```bash
         .\\venv\\Scripts\\Activate
         ```
+
     - **macOS and Linux**:
         ```bash
         source venv/bin/activate
         ```
+
 4. Run the database initialization script:
     ```bash
     python create_database.py
@@ -71,4 +94,22 @@ This README file explains how to set up a development environment for local deve
 
 This will create the tables in the `stormSurgeBarrierClosureData` database as per the models defined.
 
+## Adding Records to the Database
 
+To add a large number of records to the database:
+
+1. Prepare a JSON file with all the records. Each record should follow this format:
+
+    ```json
+    {
+        "StartDate": "YYYY-MM-DD",
+        "StartTime": "HH:MM:SS",
+        "EndDate": "YYYY-MM-DD",
+        "EndTime": "HH:MM:SS",
+        "WaterLevel": "+X.XX",
+        "ClosureEventType": "EVENT_TYPE",
+        "ClosureEventResult": "EVENT_RESULT"
+    }
+    ```
+
+2. Use the provided API endpoints (or any tool like `curl` or Postman) to send the records to the server. Make sure to handle rate limits and chunk your data if necessary.
