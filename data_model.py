@@ -1,11 +1,9 @@
-from datetime import date, datetime
-from typing import Any, List, Literal
-from uuid import UUID
+from datetime import date
 
 from sqlalchemy import ForeignKey, Integer, Enum
-from .enums.closure_event_result import ClosureEventResult
-from .enums.closure_event_type import ClosureEventType
-from sqlalchemy.ext.hybrid import HybridExtensionType, hybrid_property
+from enums.closure_event_result import ClosureEventResult
+from enums.closure_event_type import ClosureEventType
+from sqlalchemy.ext.hybrid import HybridExtensionType
 from sqlalchemy.orm import (DeclarativeBase, Mapped, class_mapper,
                             mapped_column, relationship)
 

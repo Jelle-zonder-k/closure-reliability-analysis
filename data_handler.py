@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from sqlalchemy.orm import Session
 from fastapi.encoders import jsonable_encoder
-from  import data_model
+import data_model as data_model
 from database.session_factory import SessionFactory
 from typing import List, Optional
 import numpy as np

@@ -1,12 +1,12 @@
 # main.py
-from fastapi import FastAPI, Request, Path, Query, HTTPException, Body
+from fastapi import FastAPI, Request, Path, Query, HTTPException
 from typing import List
 from data_handler import StormSurgeBarrierDataHandler
 from fast_api_logger import log_request, log_response
-from pydantic_model import StormSurgeBarrierClosureEvents, StormSurgeBarriers, IndividualStormSurgeBarrierGates, IndividualGateClosures, SingleClosureEvent, BetaDistributionInput, BetaDistributionResult
+from pydantic_model import StormSurgeBarrierClosureEvents, StormSurgeBarriers
 from enums.closure_event_result import ClosureEventResult
 from enums.closure_event_type import ClosureEventType
-from datetime import date, time, datetime
+from datetime import date
 
 app = FastAPI()
 DATA_HANDLER = StormSurgeBarrierDataHandler()
