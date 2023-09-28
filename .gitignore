@@ -1,0 +1,13 @@
+.venv
+.env
+data
+venv
+rule_of_number.png
+__pycache__/
+images/
+.vscode
+tools
+databasetools 
+__main__.py
+main.py
+closures.py

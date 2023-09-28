@@ -1,0 +1,18 @@
+pandas
+openpyxl
+matplotlib
+psycopg2
+python-dotenv
+numpy
+plotly
+sympy
+tabula-py
+pdfminer.six
+scipy
+reliability
+surpyval
+fastapi==0.95.1
+geomet
+sqlalchemy>=2.0.10
+python-dotenv
+uvicorn >= 0.2.3
