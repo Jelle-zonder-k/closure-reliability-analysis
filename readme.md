@@ -1,6 +1,10 @@
 # Storm Surge Barrier Closure Data Project
 
-This README file explains how to set up a development environment for local development, how to generate a database, and how to use the FastAPI application.
+This project provides a system to store and manage data related to storm surge barrier closures. At the heart of the project is a FastAPI application that exposes endpoints for various CRUD operations on the data, including retrieving barrier details, adding new barriers, fetching closure events, and more. Specialized endpoints for rule-of-three calculations and beta distribution evaluations are also provided. The underlying data is stored in a PostgreSQL database, which can be managed using DBeaver.
+
+## Introduction
+
+The rise of sea levels and the increasing frequency of storm surges necessitate the construction and monitoring of storm surge barriers. These barriers are crucial for preventing flooding in low-lying areas. This project aims to provide a database for recording when these barriers are closed and the circumstances surrounding such closures. The FastAPI framework is utilized to offer a simple, yet powerful, API for interacting with this database, making it easy for users to add, retrieve, and analyze barrier closure data.
 
 ## Setting Up Development Environment
 
@@ -8,13 +12,11 @@ This README file explains how to set up a development environment for local deve
 
 1. Open your terminal and navigate to the project directory.
 2. Run the following command to create a virtual environment named `venv`:
-
     ```bash
     python3 -m venv venv
     ```
 
 3. Activate the virtual environment:
-
     - **Windows**:
         ```bash
         .\\venv\\Scripts\\Activate
@@ -43,17 +45,14 @@ This README file explains how to set up a development environment for local deve
 ## Running the FastAPI application
 
 1. FastAPI is a modern web framework that's built on top of Starlette and Pydantic. It's designed to create web APIs quickly and efficiently.
-
 2. Uvicorn is an ASGI server that serves as the interface between FastAPI and the outside world. It handles incoming requests and sends them to FastAPI for processing.
-
 3. To run the FastAPI application, use the following command:
 
     ```bash
     uvicorn your_fastapi_app:app --reload
     ```
 
-    Replace `your_fastapi_app` with the name of your FastAPI application file, without the `.py` extension.
-
+   Replace `your_fastapi_app` with the name of your FastAPI application file, without the `.py` extension.
 4. The application will now be accessible at `http://127.0.0.1:8000`. 
 
 ## Generating a Database
